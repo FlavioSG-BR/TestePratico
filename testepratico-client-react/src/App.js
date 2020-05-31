@@ -9,8 +9,8 @@ import Home from './Home'
 import Atividades from './Atividades'
 
 const config = {
-    issuer: 'https://dev-454534.okta.com//oauth2/default',
-    redirect_uri: window.location.origin + '/implicit/callback',
+    issuer: 'https://dev-454534.okta.com/oauth2/default',
+    redirect_uri: 'http://localhost:3000/login',
     client_id: '0oadfytzslsrnfc004x6'
 }
 

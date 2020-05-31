@@ -41,9 +41,9 @@ export default withAuth(class Navbar extends Component {
                 <Menu fixed="top" inverted>
                     <Container>
                         <Menu.Item as="a" header href="/">
-                            Okta-React Sample Project
+                            Teste Pratico
                         </Menu.Item>
-                        {this.state.authenticated === true && <Menu.Item id="atividades-button" as="a" href="/atividades">Atividades</Menu.Item>}
+                        {this.state.authenticated === false && <Menu.Item id="atividades-button" as="a" href="/atividades">Atividades</Menu.Item>}
                         {this.state.authenticated === true && <Menu.Item id="logout-button" as="a" onClick={this.logout}>Logout</Menu.Item>}
                         {this.state.authenticated === false && <Menu.Item as="a" onClick={this.login}>Login</Menu.Item>}
                     </Container>

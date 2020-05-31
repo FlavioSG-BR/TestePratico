@@ -164,7 +164,7 @@ class ApiController
                             ->setAdaptor(new \Okta\JwtVerifier\Adaptors\SpomkyLabsJose())
                             ->setAudience('api://default')
                             ->setClientId('0oadfytzslsrnfc004x6')
-                            ->setIssuer('https://dev-454534-admin.okta.com/oauth2/default')
+                            ->setIssuer('https://dev-454534.okta.com/oauth2/default')
                             ->build();
 
             // Verify the JWT from the Authorization Header.

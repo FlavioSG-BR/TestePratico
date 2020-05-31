@@ -50,7 +50,7 @@ export default withAuth(class Atividades extends Component {
     render() {
         return (
             <div>
-                <Header as="h1">My Atividades</Header>
+                <Header as="h1">Atividades</Header>
                 {this.state.isLoading && <Message info header="Loading atividades..." />}
                 {this.state.atividades &&
                     <div>
