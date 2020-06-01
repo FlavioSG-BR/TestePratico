@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { withAuth } from '@okta/okta-react';
+import SearchBar from './SearchBar';
+import {debounce} from 'throttle-debounce';
 
 import { Container, Menu } from 'semantic-ui-react';
+
+const Root="http://"+document.location.hostname+"/app/";
 
 export default withAuth(class Navbar extends Component {
     constructor(props) {
@@ -35,6 +39,23 @@ export default withAuth(class Navbar extends Component {
         }
     }
 
+    searchDB(Valor){
+        fetch(Root+"src/api/index.php", {
+            method: 'POST',
+            body: JSON.stringify({
+                Busca: Valor
+            })
+        })
+            .then((response)=>response.json())
+            .then((responseJson)=>
+            {
+                this.setState({
+                    db: responseJson
+                });
+                console.log(responseJson);
+            });
+    }
+
     render() {
         return (
             <div>
@@ -46,6 +67,7 @@ export default withAuth(class Navbar extends Component {
                         {this.state.authenticated === false && <Menu.Item id="atividades-button" as="a" href="/atividades">Atividades</Menu.Item>}
                         {this.state.authenticated === true && <Menu.Item id="logout-button" as="a" onClick={this.logout}>Logout</Menu.Item>}
                         {this.state.authenticated === false && <Menu.Item as="a" onClick={this.login}>Login</Menu.Item>}
+                        <SearchBar funcao={debounce(3000,this.searchDB.bind(this))} estado={this.state.db} />
                     </Container>
                 </Menu>
             </div>

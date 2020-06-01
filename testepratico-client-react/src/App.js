@@ -9,9 +9,9 @@ import Home from './Home'
 import Atividades from './Atividades'
 
 const config = {
-    issuer: 'https://dev-454534.okta.com/oauth2/default',
-    redirect_uri: 'http://localhost:3000/login',
-    client_id: '0oadfytzslsrnfc004x6'
+    issuer: 'https://{Issuer URI}.okta.com',
+    redirect_uri: window.location.origin + '/implicit/callback',
+    client_id: 'Client ID '
 }
 
 class App extends Component {
